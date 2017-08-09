@@ -1,9 +1,5 @@
 package com.codeprinciples.databindingtricksandmagic;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 /**
  * MIT License
  * <p>
@@ -28,12 +24,6 @@ import android.os.Bundle;
  * SOFTWARE.
  */
 
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        DataBindingUtil.setContentView(this,R.layout.activity_main);
-    }
+public enum TypeFaceType {
+    NORMAL,BOLD,ITALIC,BOLD_ITALIC
 }
