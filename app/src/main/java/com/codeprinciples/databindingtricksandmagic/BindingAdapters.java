@@ -1,12 +1,10 @@
 package com.codeprinciples.databindingtricksandmagic;
 
-import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
-import com.codeprinciples.databindingtricksandmagic.databinding.ActivityMainBinding;
+import com.squareup.picasso.Picasso;
 
 /**
  * MIT License
@@ -32,19 +30,9 @@ import com.codeprinciples.databindingtricksandmagic.databinding.ActivityMainBind
  * SOFTWARE.
  */
 
-
-public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding mBinding;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        mBinding.setImgModel("http://placehold.it/120x120&text=image1");
-        mBinding.goToListBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ListExampleActivity.class));
-            }
-        });
+public class BindingAdapters {
+    @BindingAdapter({"bind:srcUrl", "bind:error"})
+    public static void loadImage(ImageView view, String url, Drawable error) {
+        Picasso.with(view.getContext()).load(url).error(error).into(view);
     }
 }

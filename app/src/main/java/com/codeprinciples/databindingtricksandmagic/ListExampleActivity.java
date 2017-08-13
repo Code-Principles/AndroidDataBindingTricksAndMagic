@@ -1,13 +1,7 @@
 package com.codeprinciples.databindingtricksandmagic;
 
-import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.codeprinciples.databindingtricksandmagic.databinding.ActivityMainBinding;
-
+import android.os.Bundle;
 /**
  * MIT License
  * <p>
@@ -31,20 +25,11 @@ import com.codeprinciples.databindingtricksandmagic.databinding.ActivityMainBind
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+public class ListExampleActivity extends AppCompatActivity {
 
-
-public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding mBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        mBinding.setImgModel("http://placehold.it/120x120&text=image1");
-        mBinding.goToListBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ListExampleActivity.class));
-            }
-        });
+        setContentView(R.layout.activity_list_example);
     }
 }
