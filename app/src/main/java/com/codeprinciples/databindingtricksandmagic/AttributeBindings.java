@@ -2,8 +2,12 @@ package com.codeprinciples.databindingtricksandmagic;
 
 import android.databinding.BindingAdapter;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * MIT License
@@ -52,5 +56,10 @@ public class AttributeBindings {
         }
         if (typeface!=null)
             view.setTypeface(typeface);
+    }
+
+    @BindingAdapter({"bind:srcUrl", "bind:error"})
+    public static void loadImage(ImageView view, String url, Drawable error) {
+        Picasso.with(view.getContext()).load(url).error(error).into(view);
     }
 }
