@@ -1,7 +1,13 @@
-package com.codeprinciples.databindingtricksandmagic;
+package com.codeprinciples.databindingtricksandmagic.views;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.codeprinciples.databindingtricksandmagic.R;
+import com.codeprinciples.databindingtricksandmagic.databinding.ActivityPersonDetailsBinding;
+import com.codeprinciples.databindingtricksandmagic.models.Person;
+
 /**
  * MIT License
  * <p>
@@ -25,11 +31,13 @@ import android.os.Bundle;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class ListExampleActivity extends AppCompatActivity {
-
+public class PersonDetailsActivity extends AppCompatActivity {
+    public static final String TAG_PERSON = "TAG_PERSON";
+    ActivityPersonDetailsBinding mBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_example);
+        this.mBinding = DataBindingUtil.setContentView(this,R.layout.activity_person_details);
+        this.mBinding.setPersonModel((Person) getIntent().getParcelableExtra(TAG_PERSON));
     }
 }

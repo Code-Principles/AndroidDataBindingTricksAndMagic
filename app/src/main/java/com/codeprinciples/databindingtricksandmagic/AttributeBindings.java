@@ -3,11 +3,16 @@ package com.codeprinciples.databindingtricksandmagic;
 import android.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codeprinciples.databindingtricksandmagic.adapters.RecyclerViewBindingAdapter;
+import com.codeprinciples.databindingtricksandmagic.enums.TypeFaceType;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 /**
  * MIT License
@@ -61,5 +66,11 @@ public class AttributeBindings {
     @BindingAdapter({"bind:srcUrl", "bind:error"})
     public static void loadImage(ImageView view, String url, Drawable error) {
         Picasso.with(view.getContext()).load(url).error(error).into(view);
+    }
+
+    @BindingAdapter({"bind:list","bind:layoutManager"})
+    public static void setList(RecyclerView rv, List dataItems, RecyclerView.LayoutManager layoutManager){
+        rv.setLayoutManager(layoutManager);
+        rv.setAdapter(new RecyclerViewBindingAdapter(dataItems));
     }
 }

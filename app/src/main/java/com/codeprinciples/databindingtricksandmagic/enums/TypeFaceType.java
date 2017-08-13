@@ -1,4 +1,4 @@
-package com.codeprinciples.databindingtricksandmagic;
+package com.codeprinciples.databindingtricksandmagic.enums;
 
 /**
  * MIT License
